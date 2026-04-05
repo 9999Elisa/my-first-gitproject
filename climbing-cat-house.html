@@ -1,0 +1,185 @@
+<!--
+ * Student Name: Elisa Lukas
+ * Student ID: 041-271-606
+ * Course: CST8117 - Cross-Platform Web Design
+ * Semester: Winter 2026
+ * Assignment: 3
+ * Date Submitted:  March 23, 2026
+ * • climbing-cat-house.html page
+   -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Whiskers'n Wags Pet Accessories</title>
+
+  <!-- keywords for SEO -->
+  <meta name="keywords" content="pet accessories, dog collars, cat toys, pet treats">
+
+  <!-- link to external stylesheet -->
+  <link rel="stylesheet" href="assets/main.css">
+  <link rel="stylesheet" href="assets/products.css">
+</head>
+
+<body>
+
+  <!-- Accessibility: Skip Link -->
+  <a href="#main-content" class="skip-link">Skip to Content</a>
+
+  <header>
+
+    <!-- ===== SECTION 1: Logo | Search | Account + Cart ===== -->
+    <div class="header-top">
+
+      <div class="header-left">
+        <h1>Whiskers'n Wags</h1>
+        <p class="tagline">Accessories for Happy Pets</p>
+      </div>
+
+      <div class="header-center">
+        <div class="search-bar category-search">
+          <span class="search-label">Search our site:</span>
+          <a href="products.html?category=Collar" class="search-category-btn">Collar</a>
+          <a href="products.html?category=Toy" class="search-category-btn">Toy</a>
+          <a href="products.html?category=Grooming" class="search-category-btn">Grooming</a>
+          <a href="products.html?category=Treats" class="search-category-btn">Treats</a>
+        </div>
+      </div>
+
+
+      <div class="header-right">
+        <a href="#" class="account-link">Sign In</a>
+        <a href="cart.html" class="cart-icon">
+          <img src="images/cart-icon-w.png" alt="Shopping cart" title="Shopping Cart">
+        </a>
+
+      </div>
+
+    </div>
+
+
+    <!-- ===== SECTION 2: Navigation | Contact Info ===== -->
+    <div class="header-bottom">
+
+      <div class="hamburger">&#9776;</div>
+
+      <nav class="main-nav">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="products.html">Products</a></li>
+          <li><a href="contact-us.html">Contact Us</a></li>
+
+          <!-- ===== Gestalt Principle Applied: PROXIMITY
+        The submenu items are grouped visually under "Our Company"
+        using spacing + hover behavior to show relatedness. -->
+          <li class="has-submenu">
+            <a href="#">Our Company</a>
+            <ul class="submenu">
+              <li><a href="about-us.html">About Us</a></li>
+              <li><a href="privacy-policy.html">Privacy Policy</a></li>
+              <li><a href="terms-and-conditions.html">Terms & Conditions</a></li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+
+      <div class="contact-info">
+        Email: <a href="mailto:info@whiskersnwags.com">info@whiskersnwags.com</a> |
+        Phone: 555‑123‑4567
+      </div>
+    </div>
+
+  </header>
+
+  <!-- ===== HERO BANNER ===== -->
+
+  <!--   <div class="page-banner">
+    <img src="images/fun-muddy-paws.png" alt="Dog friends strolling down a nature trail">
+  </div>  -->
+
+  <!-- ================= MAIN CONTENT ================= -->
+  <main id="main-content">
+    <!-- heading content -->
+
+    <!-- INTRO HEADING AREA -->
+    <div class="intro-heading">
+      <h1>Welcome to Whiskers'n Wags</h1>
+      <h2>Your one‑stop shop for collars, toys, and treats</h2>
+    </div>
+
+    <!-- Two Column Intro Section -->
+    <div class="intro-columns">
+
+      <!-- LEFT COLUMN: TEXT -->
+      <div class="intro-left">
+
+        <div class="intro-sh-text">PRODUCT PAGE</div>
+
+        <h3 class="product-name">Climbing Cat House</h3>
+
+        <p class="product-description">
+          Your cat will live to climb this giant castle. Lots of cubbies and spots to hide or relax in the sun.
+        </p>
+
+        <p class="product-price">Price: $99.99</p>
+        <div class="product-purchase">
+          <label for="qty">Quantity:</label>
+          <input id="qty" type="number" min="1" value="1" class="qty-input">
+          <button class="add-to-cart-btn">Add to Cart</button>
+        </div>
+
+
+
+      </div>
+
+      <!-- RIGHT COLUMN: IMAGE + CAPTION -->
+      <div class="intro-right">
+        <img src="images/ipp-products-placeholder.png" alt="placeholder image">
+      </div>
+    </div>
+
+    <!-- Pagination -->
+    <div class="pagination">
+      <a href="purple-nylon-collar.html">1</a>
+      <a href="bark-cookies.html">2</a>
+      <a href="climbing-cat-house.html" class="active">3</a>
+      <a href="green-plastic-frisbee.html">4</a>
+      <a href="howling-good-groom.html">5</a>
+      <a href="meow-along-cat-nip.html">6</a>
+      <a href="natural-lavender-bath.html">7</a>
+      <a href="princess-meowmeow-collar.html">8</a>
+      <a href="athletic-tube-run.html">9</a>
+    </div>
+
+    <div class="back-wrapper">
+      <a href="javascript:history.back()" class="back-button">Back to Previous Page</a>
+      <a href="index.html" class="back-button">Home</a>
+      <a href="green-plastic-frisbee.html" class="back-button">Next</a>
+    </div>
+
+  </main>
+
+  <!-- ================= FOOTER ================= -->
+  <footer>
+    <nav>
+      <a href="index.html">Home</a> |
+      <a href="products.html">Products</a> |
+      <a href="about-us.html">About Us</a> |
+      <a href="contact-us.html">Contact Us</a> |
+      <a href="privacy-policy.html">Privacy Policy</a> |
+      <a href="terms-and-conditions.html">Terms & Conditions</a>
+    </nav>
+
+    <p>&copy; 2026 Whiskers'n Wags Pet Accessories</p>
+
+  </footer>
+
+  <!-- JavaScript file -->
+  <script src="assets/main.js"></script>
+
+</body>
+
+</html>

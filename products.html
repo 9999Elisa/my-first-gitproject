@@ -1,0 +1,284 @@
+<!--
+ * Student Name: Elisa Lukas
+ * Student ID: 041-271-606
+ * Course: CST8117 - Cross-Platform Web Design
+ * Semester: Winter 2026
+ * Assignment: 3
+ * Date Submitted:  March 23, 2026
+ * • products.html page
+   -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Products – Whiskers'n Wags</title>
+    <link rel="stylesheet" href="assets/main.css">
+    <link rel="stylesheet" href="assets/products.css">
+</head>
+
+<body>
+
+    <a href="#main-content" class="skip-link">Skip to Content</a>
+
+    <header>
+
+        <!-- ===== SECTION 1: Logo | Search | Account + Cart ===== -->
+        <div class="header-top">
+
+            <div class="header-left">
+                <h1>Whiskers'n Wags</h1>
+                <p class="tagline">Accessories for Happy Pets</p>
+            </div>
+
+            <div class="header-right">
+                <a href="#" class="account-link">Sign In</a>
+                <a href="cart.html" class="cart-icon">
+                    <img src="images/cart-icon-w.png" alt="Shopping cart" title="Shopping Cart">
+                </a>
+            </div>
+
+        </div>
+
+
+        <!-- ===== SECTION 2: Navigation | Contact Info ===== -->
+        <div class="header-bottom">
+
+            <div class="hamburger">&#9776;</div>
+
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="contact-us.html">Contact Us</a></li>
+
+                    <!-- ===== Gestalt Principle Applied: PROXIMITY
+        The submenu items are grouped visually under "Our Company"
+        using spacing + hover behavior to show relatedness. -->
+                    <li class="has-submenu">
+                        <a href="#">Our Company</a>
+                        <ul class="submenu">
+                            <li><a href="about-us.html">About Us</a></li>
+                            <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                            <li><a href="terms-and-conditions.html">Terms & Conditions</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="contact-info">
+                Email: <a href="mailto:info@whiskersnwags.com">info@whiskersnwags.com</a> |
+                Phone: 555‑123‑4567
+            </div>
+        </div>
+
+    </header>
+
+    <main id="main-content">
+
+        <h1>Our Products</h1>
+        <div class="filter-panel"></div>
+
+        <div class="filter-group-wrapper">
+
+            <h2>Filter Products</h2>
+
+            <!-- Put BUTTONS and SUMMARY TEXT outside the FILTERS grouping -->
+            <div class="filter-summary-row">
+
+                <!-- SUMMARY -->
+                <p id="filterSummary" class="filter-summary"></p>
+                <p id="itemCount" class="item-count"></p>
+
+            </div>
+
+            <!-- ROW 1: Sort, Client Type, Category -->
+            <div class="filter-row">
+
+                <!-- SORT NAME-->
+                <div class="filter-group">
+                    <label>Sort by Product Name</label>
+                    <div class="checkboxes">
+                        <label><input type="checkbox" id="sortAsc" class="sortCheck" value="asc"> Ascending (A →
+                            Z)</label>
+                        <label><input type="checkbox" id="sortDesc" class="sortCheck" value="desc"> Descending (Z →
+                            A)</label>
+                    </div>
+                </div>
+
+                <!-- CLIENT TYPE -->
+                <div class="filter-group">
+                    <label>Client Type</label>
+                    <div class="checkboxes">
+                        <label><input type="checkbox" value="Dog" class="clientCheck"> Dog</label>
+                        <label><input type="checkbox" value="Cat" class="clientCheck"> Cat</label>
+                    </div>
+                </div>
+
+                <!-- CATEGORY -->
+                <div class="filter-group">
+                    <label>Category</label>
+                    <div class="checkboxes">
+                        <label><input type="checkbox" value="Collar" class="categoryCheck"> Collar</label>
+                        <label><input type="checkbox" value="Toy" class="categoryCheck"> Toy</label>
+                        <label><input type="checkbox" value="Grooming" class="categoryCheck"> Grooming</label>
+                        <label><input type="checkbox" value="Treats" class="categoryCheck"> Treats</label>
+                    </div>
+                </div>
+
+            </div> <!-- END ROW 1 -->
+
+            <!-- ROW 2: Price Range -->
+            <div class="filter-row single">
+
+                <!-- PRICE RANGE -->
+                <div class="filter-group">
+                    <label>Price Range</label>
+                    <select id="priceSelect">
+                        <option value="">-- Select Price Range --</option>
+                        <option value="0">$0.00 ~ $4.99</option>
+                        <option value="1">$5.00 ~ $9.99</option>
+                        <option value="2">$10.00 ~ $19.99</option>
+                        <option value="3">$20.00 ~ $50.00</option>
+                        <option value="4">$50.00 ~ $750.00</option>
+                    </select>
+                </div>
+
+            </div> <!-- END ROW 2 -->
+        </div>
+
+        <!-- ===== END Filter Options for Client Type and Category  ===== -->
+
+        <!-- BUTTONS placed outside the FILTERS grouping -->
+        <div class="filter-row buttons-row">
+
+            <!-- BUTTONS -->
+            <button id="applyFilters" class="apply-btn">APPLY</button>
+            <button id="clearFilters" class="clear-btn" style="display:none;">CLEAR ALL FILTERS</button>
+
+        </div>
+
+
+        <!-- ===== END Button and Summary Type  ===== -->
+
+        <!-- Product Grid -->
+        <div class="products-grid">
+
+            <!-- Product 1: Purple Nylon Collar -->
+            <div class="product-card" data-category="Collar" data-client="Dog" data-price="12.99" data-active="true">
+                <a href="purple-nylon-collar.html" class="product-link">
+                    <img src="images/grid-thumb-purple_collar.png" alt="Poodle wearing a purple nylon collar"
+                        title="Click to view product details">
+                    <h3>Purple Nylon Collar</h3>
+                    <p class="price">$12.99</p>
+                </a>
+            </div>
+
+            <!-- Product 2: Bark Cookies -->
+            <div class="product-card" data-category="Treats" data-client="Dog" data-price="16.99" data-active="true">
+                <a href="bark-cookies.html" class="product-link">
+                    <img src="images/grid-thumb-cookie.png" alt="Variety pack of Bark Cookies"
+                        title="Click to view product details">
+                    <h3>Bark Cookies</h3>
+                    <p class="price">$16.99</p>
+                </a>
+            </div>
+
+            <!-- Product 3: Climbing Cat House -->
+            <div class="product-card" data-category="Toy" data-client="Cat" data-price="99.99" data-active="true">
+                <a href="climbing-cat-house.html" class="product-link">
+                    <img src="images/grid-thumb-placeholder.png" alt="Climbing Cat House"
+                        title="Click to view product details">
+                    <h3>Climbing Cat House</h3>
+                    <p class="price">$99.99</p>
+                </a>
+            </div>
+
+            <!-- Product 4: Green Plastic Frisbee -->
+            <div class="product-card" data-category="Toy" data-client="Dog" data-price="19.99" data-active="true">
+                <a href="green-plastic-frisbee.html" class="product-link">
+                    <img src="images/grid-thumb-frisbee.png" alt="Green Plastic Frisbee"
+                        title="Click to view product details">
+                    <h3>Green Plastic Frisbee</h3>
+                    <p class="price">$19.99</p>
+                </a>
+            </div>
+
+            <!-- Product 5: Howling Good Groom -->
+            <div class="product-card" data-category="Grooming" data-client="Dog" data-price="125.99" data-active="true">
+                <a href="howling-good-groom.html" class="product-link">
+                    <img src="images/grid-thumb-placeholder.png" alt="Howling Good Groom Doggie Bath Time"
+                        title="Click to view product details">
+                    <h3>Howling Good Groom</h3>
+                    <p class="price">$125.99</p>
+                </a>
+            </div>
+
+            <!-- Product 6: Meow Along Cat Nip -->
+            <div class="product-card" data-category="Treats" data-client="Cat" data-price="4.99" data-active="true">
+                <a href="meow-along-cat-nip.html" class="product-link">
+                    <img src="images/grid-thumb-placeholder.png" alt="Meow Along Cat Nip"
+                        title="Click to view product details">
+                    <h3>Meow Along Cat Nip</h3>
+                    <p class="price">$4.99</p>
+                </a>
+            </div>
+
+            <!-- Product 7: Natural Lavender Bath -->
+            <div class="product-card" data-category="Grooming" data-client="Cat" data-price="23.99" data-active="true">
+                <a href="natural-lavender-bath.html" class="product-link">
+                    <img src="images/grid-thumb-placeholder.png" alt="Natural Lavender Scented Cat Bath Product"
+                        title="Click to view product details">
+                    <h3>Natural Lavender Bath</h3>
+                    <p class="price">$23.99</p>
+                </a>
+            </div>
+
+            <!-- Product 8: Princess MeowMeow Collar -->
+            <div class="product-card" data-category="Collar" data-client="Cat" data-price="6.99" data-active="true">
+                <a href="princess-meowmeow-collar.html" class="product-link">
+                    <img src="images/grid-thumb-placeholder.png" alt="Princess MeowMeow Collar"
+                        title="Click to view product details">
+                    <h3>Princess MeowMeow Collar</h3>
+                    <p class="price">$6.99</p>
+                </a>
+            </div>
+
+            <!-- Product 9: Athletic Tube Run -->
+            <div class="product-card" data-category="Toy" data-client="Dog" data-price="50.99" data-active="true">
+                <a href="athletic-tube-run.html" class="product-link">
+                    <img src="images/grid-thumb-placeholder.png" alt="Long Yellow Athletic Running Tube for Dog"
+                        title="Click to view product details">
+                    <h3>Athletic Tube Run</h3>
+                    <p class="price">$50.99</p>
+                </a>
+            </div>
+
+        </div>
+
+    </main>
+
+    <footer>
+        <nav>
+            <a href="index.html">Home</a> |
+            <a href="products.html">Products</a> |
+            <a href="about-us.html">About Us</a> |
+            <a href="contact-us.html">Contact Us</a> |
+            <a href="privacy-policy.html">Privacy Policy</a> |
+            <a href="terms-and-conditions.html">Terms & Conditions</a>
+        </nav>
+
+        <p>&copy; 2026 Whiskers'n Wags Pet Accessories</p>
+
+    </footer>
+
+    <!-- JavaScript Filtering file -->
+    <script src="assets/products.js"></script>
+
+    <!-- JavaScript file -->
+    <script src="assets/main.js"></script>
+
+</body>
+
+</html>

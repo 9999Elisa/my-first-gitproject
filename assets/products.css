@@ -1,0 +1,566 @@
+/*
+ * Student Name: Elisa Lukas
+ * Student ID: 041-271-606
+ * Course: CST8117 - Cross-Platform Web Design
+ * Semester: Winter 2026
+ * Assignment: 3
+ * Date Submitted: March 23, 2026
+ */
+/* ============================================
+   PRODUCT STYLES (products.css)
+   This file styles:
+   - Featured products (homepage)
+   - Products page grid
+   - Product detail page
+   - Cart page
+   ============================================ */
+
+
+/* ================= FEATURED PRODUCTS (Homepage) ================= */
+.featured-products {
+  max-width: 1100px;
+  margin: 40px auto;
+  /* center the whole block */
+  text-align: center;
+  /* center the headings */
+}
+
+.featured-products h2 {
+  margin-bottom: 20px;
+}
+
+.featured-products .product-card {
+  display: inline-block;
+  /* allows centering of cards */
+  margin: 0 15px;
+  /* spacing between cards */
+  vertical-align: top;
+}
+
+.product-card {
+  border: 1px solid #ccc;
+  padding: 15px;
+  width: 200px;
+  display: inline-block;
+  margin-right: 20px;
+  background-color: #ffffff;
+}
+
+.product-card img {
+  width: 100%;
+}
+
+.product-link {
+  text-decoration: none;
+  color: inherit;
+  display: inline-block;
+}
+
+.price {
+  font-weight: bold;
+  color: #006600;
+}
+
+/* ================= FILTER PANEL AREA ================= */
+
+/* NEW: wrapper that centers all filter items as one block */
+.filter-group-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* centers EVERYTHING inside */
+  gap: 10px;
+  /* spacing between sections, faint outlines */
+  max-width: 1100px;
+  margin: 0 auto;
+  border: 1px solid #dcdcdc;
+  padding: 12px 16px;
+  border-radius: 6px;
+  background: #fafafa;
+}
+
+.filter-group {
+  width: 220px;
+}
+
+.filter-group .checkboxes {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.filter-row {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  width: 100%;
+  margin-bottom: 6px;
+}
+
+.filter-row.single {
+  justify-content: center;
+}
+
+
+/* ================= Button Controls ================= */
+
+/* Group Labels */
+.filter-group label {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 8px;
+}
+
+/* Checkbox List */
+.checkboxes label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 3px;
+  font-size: 1rem;
+}
+
+/* Buttons */
+
+.apply-btn:active {
+  background-color: #003a87;
+}
+
+.apply-btn:hover {
+  background-color: #005bd1;
+}
+
+.apply-btn {
+  background: #004aad;
+  border: 2px solid #004aad;
+  color: white;
+  padding: 10px 18px;
+  display: inline-flex;
+  /* center text vertically */
+  cursor: pointer;
+  margin-top: 10px;
+  border-radius: 6px;
+}
+
+.clear-btn {
+  background: #ffffff;
+  border: 2px solid #004aad;
+  color: #004aad;
+  padding: 10px 18px;
+  display: inline-flex;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+.buttons-row {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 10px;
+  margin-bottom: 18px;
+}
+
+/* Summary + count */
+
+.filter-summary {
+  margin-top: 12px;
+  font-weight: bold;
+}
+
+.filter-summary-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+.item-count {
+  margin-top: 14px;
+  font-style: italic;
+}
+
+/* ================= PRODUCTS PAGE GRID ================= */
+
+/* Center the grid on the page */
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  /* 3 items per row */
+  gap: 20px;
+  /* narrow spacing */
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* Product Card (grid version only) */
+.products-grid .product-card {
+  background: #ffffff;
+  border: 1px solid #ddd;
+  padding: 12px;
+  border-radius: 6px;
+  text-align: center;
+  width: 100%;
+  display: block;
+  box-sizing: border-box;
+}
+
+/* Product Image — fixed small size (220px) */
+.products-grid .product-card img {
+  width: 220px;
+  height: auto;
+  margin: 0 auto 10px;
+  display: block;
+}
+
+/* Product name */
+.products-grid .product-card h3 {
+  font-size: 1rem;
+  margin-bottom: 6px;
+}
+
+/* Product Price */
+.products-grid .product-card .price {
+  font-weight: bold;
+  margin-top: 4px;
+}
+
+.product-price {
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+
+
+/* ================= Pagination/* ================= */
+
+.pagination {
+  margin-top: 30px;
+  text-align: center;
+}
+
+.pagination a {
+  margin: 0 8px;
+  text-decoration: none;
+  color: #2c3e50;
+  font-weight: bold;
+}
+
+.pagination a.active {
+  font-weight: bolder;
+  text-decoration: underline;
+}
+
+
+/* ================= PRODUCT DETAIL PAGE/* ================= */
+
+.product-name {
+  margin-bottom: 10px;
+}
+
+.product-description {
+  margin-bottom: 15px;
+}
+
+.product-price {
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.product-purchase {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.qty-label {
+  font-weight: 600;
+}
+
+.qty-input {
+  width: 50px;
+  padding: 4px;
+}
+
+.add-to-cart-btn {
+  background-color: #2c3e50;
+  color: white;
+  padding: 6px 12px;
+  border: none;
+  cursor: pointer;
+  border-radius: 6px;
+}
+
+.product-detail {
+  display: flex;
+  gap: 40px;
+  margin-top: 30px;
+}
+
+.product-detail img {
+  width: 600px;
+  height: auto
+}
+
+.product-info h2 {
+  margin-top: 0;
+}
+
+.add-to-cart {
+  margin-top: 20px;
+}
+
+.add-to-cart button {
+  background-color: #f39c12;
+  color: #1F2B38;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.qty-input {
+  width: 60px;
+  padding: 6px;
+  margin-right: 10px;
+}
+
+/* ================= CARTPAGE ================= */
+
+.cart-table {
+  display: grid;
+  grid-template-columns: 120px 1fr 100px 100px 100px;
+  gap: 15px;
+  align-items: center;
+  margin-top: 30px;
+}
+
+.cart-table img {
+  width: 120px;
+}
+
+.remove-btn {
+  background-color: #f39c12;
+  color: #1F2B38;
+  padding: 6px 10px;
+  border: none;
+  cursor: pointer;
+  border-radius: 6px;
+}
+
+.cart-totals {
+  margin-top: 40px;
+  text-align: right;
+}
+
+.cart-totals p {
+  margin: 5px 0;
+  font-size: 18px;
+}
+
+/* ================= Mobile Instruction Block ================= */
+
+/* Featured Products on homepage */
+@media (max-width: 768px) {
+
+  .featured-products .product-card {
+    margin-bottom: 12px;
+    /* clean spacing between stacked cards */
+  }
+
+  .products-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  /* ===========================
+   PRODUCT FILTER — MOBILE 
+   =========================== */
+
+  .apply-btn,
+  .clear-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+  .filter-group-wrapper {
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    padding: 16px;
+    border: none;
+    border-radius: 0;
+    align-items: stretch;
+    /* instead of center */
+  }
+
+  .filter-row {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .filter-group {
+    width: 100%;
+    /* instead of 220px */
+  }
+
+  .filter-panel {
+    margin: 0 12px;
+    /* NEW — adds breathing room on left/right */
+    padding: 16px;
+    background: #ffffff;
+    border-radius: 8px;
+  }
+
+  .filter-panel h3,
+  .filter-panel h4 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    text-align: left;
+  }
+
+  .filter-panel label {
+    font-size: 15px;
+    display: block;
+    margin-bottom: 6px;
+  }
+
+  .filter-section {
+    margin-bottom: 18px;
+  }
+
+  .filter-panel select,
+  .filter-panel input[type="radio"],
+  .filter-panel input[type="checkbox"] {
+    width: 100%;
+  }
+
+  .filter-results-text {
+    font-size: 15px;
+    margin-bottom: 12px;
+    text-align: left;
+  }
+
+  .filter-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .filter-buttons button {
+    width: 100%;
+  }
+
+  /* ================= CART PAGE — MOBILE ================= */
+
+  /* Make the two main columns into one */
+  .cart-layout {
+    display: block;
+    width: 100%;
+  }
+
+  .cart-left,
+  .cart-right {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  /* one long vertical column */
+  .cart-item {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 12px 0;
+    border-bottom: 1px solid #ddd;
+  }
+
+  .cart-item-img {
+    width: 100%;
+    max-width: 180px;
+    height: auto;
+    margin: 0 auto;
+    display: block;
+  }
+
+  .cart-item-info {
+    width: 100%;
+  }
+
+  /* Inputs and buttons full width */
+  .cart-qty-input,
+  .coupon-input,
+  .delivery-input,
+  .delivery-select {
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .coupon-row {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .coupon-btn,
+  .remove-item-btn,
+  .checkout-btn {
+    width: 100%;
+  }
+
+  /* Consistent spacing between sections*/
+  .summary-box,
+  .delivery-box,
+  .payment-box {
+    padding: 16px;
+    margin-top: 20px;
+    background: #ffffff;
+    border-radius: 8px;
+    box-sizing: border-box;
+  }
+  
+  .summary-line,
+  .summary-total {
+    display: flex;
+    justify-content: space-between;
+    margin: 8px 0;
+    font-size: 16px
+  }
+
+  .summary-total {
+    font-weight: bold;
+    margin-top: 12px;
+  }
+
+  .delivery-label {
+    margin-top: 12px;
+    margin-bottom: 4px;
+    display:block;
+    font-weight: 600;
+  }
+
+  .delivery-input,
+  .delivery-select {
+    width: 100%;
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    margin-bottom: 6px;
+    box-sizing: border-box;
+  }
+
+  /* Payment button full width + spacing */
+  .checkout-btn {
+    width: 100%;
+    padding: 14px;
+    margin-top: 16px;
+    font-size: 18px;
+    border-radius: 6px;
+  }
+
+}

@@ -1,0 +1,164 @@
+<!--
+ * Student Name: Elisa Lukas
+ * Student ID: 041-271-606
+ * Course: CST8117 - Cross-Platform Web Design
+ * Semester: Winter 2026
+ * Assignment: 3
+ * Date Submitted:  March 23, 2026
+ * • about-us.html page
+   -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Whiskers'n Wags Pet Accessories</title>
+
+  <!-- KEYWORDS FOR SEO -->
+  <meta name="keywords" content="pet accessories, dog collars, cat toys, pet treats">
+
+  <!-- LINK TO EXTERNAL STYLESHEET -->
+  <link rel="stylesheet" href="assets/main.css">
+  <link rel="stylesheet" href="assets/products.css">
+</head>
+
+<body>
+
+  <!-- ACCESSIBILITY: SKIP LINK -->
+  <a href="#main-content" class="skip-link">Skip to Content</a>
+
+  <header>
+
+    <!-- ===== SECTION 1: LOGO | SEARCH | ACCOUNT + CART ===== -->
+    <div class="header-top">
+
+      <div class="header-left">
+        <h1>Whiskers'n Wags</h1>
+        <p class="tagline">Accessories for Happy Pets</p>
+      </div>
+
+      <div class="header-center">
+        <div class="search-bar category-search">
+          <span class="search-label">Search our site:</span>
+          <a href="products.html?category=Collar" class="search-category-btn">Collar</a>
+          <a href="products.html?category=Toy" class="search-category-btn">Toy</a>
+          <a href="products.html?category=Grooming" class="search-category-btn">Grooming</a>
+          <a href="products.html?category=Treats" class="search-category-btn">Treats</a>
+        </div>
+      </div>
+
+
+      <div class="header-right">
+        <a href="#" class="account-link">Sign In</a>
+        <a href="cart.html" class="cart-icon">
+          <img src="images/cart-icon-w.png" alt="Shopping cart" title="Shopping Cart">
+        </a>
+      </div>
+
+    </div>
+
+
+    <!-- ===== SECTION 2: NAVIGATION | CONTACT INFO ===== -->
+    <div class="header-bottom">
+
+      <div class="hamburger">&#9776;</div>
+
+      <nav class="main-nav">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="products.html">Products</a></li>
+          <li><a href="contact-us.html">Contact Us</a></li>
+
+          <!-- ===== GESTALT PRINCIPLE APPLIED: PROXIMITY
+        The submenu items are grouped visually under "Our Company"
+        using spacing + hover behavior to show relatedness. -->
+          <li class="has-submenu">
+            <a href="#">Our Company</a>
+            <ul class="submenu">
+              <li><a href="about-us.html">About Us</a></li>
+              <li><a href="privacy-policy.html">Privacy Policy</a></li>
+              <li><a href="terms-and-conditions.html">Terms & Conditions</a></li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+
+      <div class="contact-info">
+        Email: <a href="mailto:info@whiskersnwags.com">info@whiskersnwags.com</a> |
+        Phone: 555‑123‑4567
+      </div>
+    </div>
+
+  </header>
+
+  <!-- ===== HERO BANNER ===== -->
+  <div class="page-banner">
+    <img src="images/sleepy-friends.png" alt="Cuddling, playful, Cat and Dog">
+  </div>
+
+  <!-- ================= MAIN CONTENT ================= -->
+  <main id="main-content">
+    <!-- HEADING CONTENT -->
+
+    <!-- INTRO HEADING AREA -->
+    <div class="intro-heading">
+      <h1>Welcome to Whiskers'n Wags</h1>
+      <h2>Your one‑stop shop for collars, toys, and treats</h2>
+    </div>
+
+    <!-- TWO COLUMN INTRO SECTION -->
+    <div class="intro-columns">
+
+      <!-- LEFT COLUMN: TEXT -->
+      <div class="intro-left">
+
+        <div class="intro-sh-text">ABOUT WHISKERS’N WAGS </div>
+
+        <div class="sp-class-heading">Doing more to help <br> our Community live better.</div>
+
+        <h3>Learn more about us</h3>
+        <!-- TWO PARAGRAPHS -->
+        <p>At Whiskers'n Wags we share our favourite 'pet' things with our customers. You’ll find unique toys, treats,
+          and wearables
+          for a variety of pets; items their humans adore. Our conversations are centered around pets, the spots to go
+          for long enjoyable walks in nature, or where to find room to throw a ball safely. We hope you feel welcomed
+          here.</p>
+
+        <!-- END LEFT COLUMN: FLAOT IMAGE WITH TEXT -->
+        <p>At Whiskers'n Wags we care about our community, if you have an unexpected emergency and need to find a pet
+          sitter for an immediate need, please reach out and we'll do our best to help.</p>
+        <img src="images/stick-person-dog-cat-walk.png" alt="Stick person walking a stick dog and stick-cat"
+          class="about-float-img">
+      </div>
+
+      <!-- RIGHT COLUMN: IMAGE + CAPTION -->
+      <div class="intro-right">
+        <img src="images/friends-at-the-river.png" alt="Toddler with small dog gazing out upon a peaceful river">
+      </div>
+    </div>
+
+  </main>
+
+  <!-- ================= FOOTER ================= -->
+  <footer>
+    <nav>
+      <a href="index.html">Home</a> |
+      <a href="products.html">Products</a> |
+      <a href="about-us.html">About Us</a> |
+      <a href="contact-us.html">Contact Us</a> |
+      <a href="privacy-policy.html">Privacy Policy</a> |
+      <a href="terms-and-conditions.html">Terms & Conditions</a>
+    </nav>
+
+    <p>&copy; 2026 Whiskers'n Wags Pet Accessories</p>
+  </footer>
+
+  <!-- JavaScript file -->
+  <script src="assets/main.js"></script>
+
+
+</body>
+
+</html>
