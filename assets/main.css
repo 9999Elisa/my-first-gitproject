@@ -1,6 +1,6 @@
 /*
- * Student Name: 
- * Student ID: 
+ * Student Name: Elisa Lukas
+ * Student ID: 041-271-606
  * Course: CST8117 - Cross-Platform Web Design
  * Semester: Winter 2026
  * Assignment: 4
@@ -947,6 +947,18 @@ textarea.valid {
     .intro-left li {
         margin-bottom: 4px;
     }
+
+    /* Cart */
+    .cart-layout {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .cart-left,
+    .cart-right {
+        width: 100%;
+    }
+
 
     /* ===========================
        MOBILE FLOAT IMAGE - About Us Page
