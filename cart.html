@@ -1,11 +1,11 @@
 <!--
- * Student Name: 
- * Student ID: 
+ * Student Name: Elisa Lukas
+ * Student ID: 041-271-606
  * Course: CST8117 - Cross-Platform Web Design
  * Semester: Winter 2026
- * Assignment: 3
- * Date Submitted:  March 23, 2026
- * • cart.html page
+ * Assignment: 4
+ * Date Submitted:  April 13, 2026
+ * cart.html page
    -->
 
 <!DOCTYPE html>
@@ -132,7 +132,7 @@
           <h3 class="cart-section-title">YOUR CART ITEMS</h3>
 
           <div class="cart-item">
-            <img src="images/cart-thumb.png" alt="Product image" class="cart-item-img">
+            <img src="images/cart-thumb.png" alt="Purple Collar Product" class="cart-item-img">
 
             <div class="cart-item-info">
               <p class="cart-item-name">Product Name</p>
@@ -146,7 +146,7 @@
           </div>
 
           <div class="cart-item">
-            <img src="images/cart-thumb-placeholder.jpg" alt="Product image" class="cart-item-img">
+            <img src="images/cart-thumb-placeholder.jpg" alt="Placeholder Product image 2" class="cart-item-img">
 
             <div class="cart-item-info">
               <p class="cart-item-name">Second Product Name</p>
@@ -173,44 +173,38 @@
           <p class="summary-line"><span>Tax:</span> $4.42</p>
           <p class="summary-line"><span>Shipping:</span> $6.95</p>
 
+          <!-- Correct semantics; WAVE flags an Alert of “Possible Heading,” because the text is bold and short.
+          The “Grand Total” is a price label value, and not a section heading. The <p> element is semantically correct and
+          must remain as-is to preserve proper checkout structure. -->
           <p class="summary-total"><span>Grand Total:</span> $45.35</p>
         </section>
 
-        <!-- DELIVERY -->
+
+        <!-- IN STORE PICKUP OR DELIVERY -->
         <section class="delivery-box">
-          <h3 class="cart-section-title">DELIVERY</h3>
+          <h3 class="cart-section-title">
+            <label for="pickup" style="cursor:pointer;">IN STORE PICKUP </label>
+            <input id="pickup" type="checkbox" class="delivery-checkbox">
+          </h3>
+          <label for="pickupNotes" class="sr-only">Pickup Notes</label>
+          <textarea id="pickupNotes" class="pickup-notes-input"
+            placeholder="When will you be picking this up?"></textarea>
 
-          <label for="pickup" class="delivery-label">Pickup</label>
-          <input id="pickup" type="checkbox" class="delivery-checkbox">
+          <p class="pickup-note">
+            *Please sign in below or create an account to proceed.
+          </p>
+        </section>
 
-          <label class="delivery-label">Ship to:</label>
+        <section class="account-box">
+          <h3 class="cart-section-title">ACCOUNT</h3>
 
-          <label for="firstName" class="delivery-label">First name</label>
-          <input id="firstName" type="text" class="delivery-input">
+          <label for="Email" class="email-label">Email Address</label>
+          <input id="Email" type="text" class="account-input">
 
-          <label for="lastName" class="delivery-label">Last name</label>
-          <input id="lastName" type="text" class="delivery-input">
+          <label for="Password" class="password-label">Password</label>
+          <input id="Password" type="text" class="account-input">
 
-          <label for="address" class="delivery-label">Address</label>
-          <input id="address" type="text" class="delivery-input">
-
-          <label for="apt" class="delivery-label">Apartment, suite</label>
-          <input id="apt" type="text" class="delivery-input">
-
-          <label for="city" class="delivery-label">City</label>
-          <input id="city" type="text" class="delivery-input">
-
-          <label for="province" class="delivery-label">Province</label>
-          <input id="province" type="text" class="delivery-input">
-
-          <label for="postal" class="delivery-label">Postal code</label>
-          <input id="postal" type="text" class="delivery-input">
-
-          <label for="shipMethod" class="delivery-label">Shipping method:</label>
-          <select id="shipMethod" class="delivery-select">
-            <option>Canada Post</option>
-            <option>Purolator</option>
-          </select>
+          <button class="checkout-btn">SIGN-IN OR CREATE ACCOUNT</button>
         </section>
 
         <!-- PAYMENT GATEWAY -->

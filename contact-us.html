@@ -1,11 +1,11 @@
 <!--
- * Student Name: 
- * Student ID: 
+ * Student Name: Elisa Lukas
+ * Student ID: 041-271-606
  * Course: CST8117 - Cross-Platform Web Design
  * Semester: Winter 2026
- * Assignment: 3
- * Date Submitted:  March 23, 2026
- * • contact-us.html page
+ * Assignment: 4
+ * Date Submitted:  April 13, 2026
+ * contact-us.html page
    -->
 
 <!DOCTYPE html>
@@ -19,9 +19,22 @@
   <!-- keywords for SEO -->
   <meta name="keywords" content="pet accessories, dog collars, cat toys, pet treats">
 
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+
   <!-- link to external stylesheet -->
   <link rel="stylesheet" href="assets/main.css">
   <link rel="stylesheet" href="assets/products.css">
+
+  <!-- jQuery (must load before Bootstrap JS) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+  <!-- Bootstrap JS -->
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+  <!-- jQuery Validation Plugin -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.min.js"></script>
+
 </head>
 
 <body>
@@ -132,6 +145,7 @@
     </div> <!-- end of intro-columns -->
 
     <!-- ================= CONTACT FORM SECTION ================= -->
+
     <section class="contact-form-section">
 
       <h2>Or fill out our inquiry Form</h2>
@@ -142,7 +156,7 @@
         <input type="text" id="name" name="name" placeholder="Your full name" required>
 
         <label for="phone">Phone</label>
-        <input type="tel" id="phone" name="phone" placeholder="555-123-4567">
+        <input type="tel" id="phone" name="phone" placeholder="555-123-4567" required>
 
         <label for="email">Email Address *</label>
         <input type="email" id="email" name="email" placeholder="you@example.com" required>
@@ -160,11 +174,14 @@
           <input type="checkbox" id="consent" name="consent" required>
           <label for="consent">
             *By filling out the form and hitting submit, you're providing express consent to receive communications
-            from Whiskers'n Wags.
+            from Whiskers'n Wags <a href="terms-and-conditions.html" target="_blank">Terms & Conditions</a>.
           </label>
         </div>
 
         <button type="submit" class="btn-submit">Submit</button>
+
+        <p id="formSuccess" class="success-message">Thank you! Your message has been received successfully, however we
+          did not send an email, nor cache data, or update a database.</p>
 
       </form>
 
