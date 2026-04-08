@@ -1,10 +1,10 @@
 /*
- * Student Name: 
- * Student ID: 
+ * Student Name: Elisa Lukas
+ * Student ID: 041-271-606
  * Course: CST8117 - Cross-Platform Web Design
  * Semester: Winter 2026
- * Assignment: 3
- * Date Submitted: March 23, 2026
+ * Assignment: 4
+ * Date Submitted: April 13, 2026
  */
 /* ============================================
    PRODUCT STYLES (products.css)
@@ -12,7 +12,6 @@
    - Featured products (homepage)
    - Products page grid
    - Product detail page
-   - Cart page
    ============================================ */
 
 
@@ -83,6 +82,21 @@
   width: 220px;
 }
 
+/* Remove default fieldset border + spacing (i.e., per WAVE fix) */
+.filter-group {
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Make legend behave like divs did (i.e., before WAVE fix) with labels */
+.filter-group legend {
+  padding: 0;
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+
+
 .filter-group .checkboxes {
   display: flex;
   flex-direction: column;
@@ -102,16 +116,14 @@
 }
 
 
-/* ================= Button Controls ================= */
-
-/* Group Labels */
+/* Styles the Heading Label at the top of each Filter Group */
 .filter-group label {
   font-weight: bold;
   display: block;
   margin-bottom: 8px;
 }
 
-/* Checkbox List */
+/* Style label next to each Checkbox inside the Filter Panel */
 .checkboxes label {
   display: flex;
   align-items: center;
@@ -120,7 +132,7 @@
   font-size: 1rem;
 }
 
-/* Buttons */
+/* ================= Button Controls ================= */
 
 .apply-btn:active {
   background-color: #003a87;
@@ -160,14 +172,17 @@
   margin-top: 10px;
   margin-bottom: 18px;
 }
+/* =================================================================== */
+/* Summary Information + count  Filter Panel Area */
+/* =================================================================== */
 
-/* Summary + count */
-
+/* Styles the Heading Text that appears after the User applies Filters */
 .filter-summary {
   margin-top: 12px;
   font-weight: bold;
 }
 
+/*This styles the row that holds the summary items, usually displayed horizontally.*/
 .filter-summary-row {
   display: flex;
   justify-content: center;
@@ -176,12 +191,15 @@
   margin-bottom: 8px;
 }
 
+/*This styles the “X items found” text that appears under the summary. */
 .item-count {
   margin-top: 14px;
   font-style: italic;
 }
 
-/* ================= PRODUCTS PAGE GRID ================= */
+/* =================================================================== */
+/* PRODUCTS PAGE GRID   */
+/* =================================================================== */
 
 /* Center the grid on the page */
 .products-grid {
@@ -229,27 +247,6 @@
 .product-price {
   font-weight: 600;
   margin-bottom: 10px;
-}
-
-
-
-/* ================= Pagination/* ================= */
-
-.pagination {
-  margin-top: 30px;
-  text-align: center;
-}
-
-.pagination a {
-  margin: 0 8px;
-  text-decoration: none;
-  color: #2c3e50;
-  font-weight: bold;
-}
-
-.pagination a.active {
-  font-weight: bolder;
-  text-decoration: underline;
 }
 
 
@@ -327,37 +324,23 @@
   margin-right: 10px;
 }
 
-/* ================= CARTPAGE ================= */
+/* ================= Pagination/* ================= */
 
-.cart-table {
-  display: grid;
-  grid-template-columns: 120px 1fr 100px 100px 100px;
-  gap: 15px;
-  align-items: center;
+.pagination {
   margin-top: 30px;
+  text-align: center;
 }
 
-.cart-table img {
-  width: 120px;
+.pagination a {
+  margin: 0 8px;
+  text-decoration: none;
+  color: #2c3e50;
+  font-weight: bold;
 }
 
-.remove-btn {
-  background-color: #f39c12;
-  color: #1F2B38;
-  padding: 6px 10px;
-  border: none;
-  cursor: pointer;
-  border-radius: 6px;
-}
-
-.cart-totals {
-  margin-top: 40px;
-  text-align: right;
-}
-
-.cart-totals p {
-  margin: 5px 0;
-  font-size: 18px;
+.pagination a.active {
+  font-weight: bolder;
+  text-decoration: underline;
 }
 
 /* ================= Mobile Instruction Block ================= */
@@ -454,113 +437,5 @@
 
   .filter-buttons button {
     width: 100%;
-  }
-
-  /* ================= CART PAGE — MOBILE ================= */
-
-  /* Make the two main columns into one */
-  .cart-layout {
-    display: block;
-    width: 100%;
-  }
-
-  .cart-left,
-  .cart-right {
-    width: 100%;
-    margin: 0;
-    padding: 0;
-  }
-
-  /* one long vertical column */
-  .cart-item {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    padding: 12px 0;
-    border-bottom: 1px solid #ddd;
-  }
-
-  .cart-item-img {
-    width: 100%;
-    max-width: 180px;
-    height: auto;
-    margin: 0 auto;
-    display: block;
-  }
-
-  .cart-item-info {
-    width: 100%;
-  }
-
-  /* Inputs and buttons full width */
-  .cart-qty-input,
-  .coupon-input,
-  .delivery-input,
-  .delivery-select {
-    width: 100%;
-    box-sizing: border-box;
-  }
-
-  .coupon-row {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  .coupon-btn,
-  .remove-item-btn,
-  .checkout-btn {
-    width: 100%;
-  }
-
-  /* Consistent spacing between sections*/
-  .summary-box,
-  .delivery-box,
-  .payment-box {
-    padding: 16px;
-    margin-top: 20px;
-    background: #ffffff;
-    border-radius: 8px;
-    box-sizing: border-box;
-  }
-  
-  .summary-line,
-  .summary-total {
-    display: flex;
-    justify-content: space-between;
-    margin: 8px 0;
-    font-size: 16px
-  }
-
-  .summary-total {
-    font-weight: bold;
-    margin-top: 12px;
-  }
-
-  .delivery-label {
-    margin-top: 12px;
-    margin-bottom: 4px;
-    display:block;
-    font-weight: 600;
-  }
-
-  .delivery-input,
-  .delivery-select {
-    width: 100%;
-    padding: 10px;
-    border-radius: 6px;
-    border: 1px solid #ccc;
-    margin-bottom: 6px;
-    box-sizing: border-box;
-  }
-
-  /* Payment button full width + spacing */
-  .checkout-btn {
-    width: 100%;
-    padding: 14px;
-    margin-top: 16px;
-    font-size: 18px;
-    border-radius: 6px;
-  }
-
+  }  
 }

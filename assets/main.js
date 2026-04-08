@@ -1,17 +1,17 @@
 /*
- * Student Name:  
- * Student ID:  
+ * Student Name:  Elisa Lukas
+ * Student ID:  041-271-606
  * Course: CST8117 - Cross-Platform Web Design
  * Semester: Winter 2026
- * Assignment: 3
- * Date Submitted:  March 23, 2026
- * • main.js
+ * Assignment: 4
+ * Date Submitted:  April 13, 2026
+ * main.js
  */
-/**
- * Validates an email address using a regular expression.
- * Assignment Instruction (Tiwari, 2026c) regex option
- * MDN Web Docs – "Using regular expressions in JavaScript"
- */
+/**============================================================
+ * EMAIL VALIDATION - Assignment 3 Function
+ * Validates an email address using regular expression.
+ * Sources:  Tiwari (2026c), MDN RegExp, W3Schools IndexOf() 
+ **============================================================*/
 function isValidEmail(email) {
 
     // Must be a string
@@ -22,6 +22,7 @@ function isValidEmail(email) {
     // REQUIREMENT:  Check the length of the email before the @ symbol 
     // '@' must be at least the 3rd character (at index position >= 2)
     // AND must be followed by at least 5 characters. (Cite W3Schools, IndexOf)
+
     const atIndex = email.indexOf("@");
     if (atIndex < 2 || email.length - atIndex - 1 < 5) {
         return false;
@@ -33,6 +34,7 @@ function isValidEmail(email) {
     // - contains @
     // - domain contains at least one dot
     // - top-level domain is at least 2 characters
+
     const emailPattern = /^[A-Za-z][A-Za-z0-9._-]*@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
 
     return emailPattern.test(email);
@@ -50,10 +52,10 @@ console.log(isValidEmail("1m@email.com")); // false
 console.log(isValidEmail("my!Email@email.com")); // false
 
 /**============================================================
- * Assignment Instruction (Tiwari, 2026c) and lesson information (Tiwari, 2026b)
+ * VALIDATION AGE OF MAJORITY - Assignment 3 Function
  * Determines if a person is 18 years of age or older.
  * Logic adapted from Tiwari, A. (2026b and 2026c).
-   ============================================================*/
+ **============================================================*/
 function isAgeOfMajority(birthYear, birthMonth, birthDay) {
 
     // Validate parameters (IF: Birth year is not equal to number, or birth year is less than 1920, or birth year is greater than 2010 - RETURN False)
@@ -120,13 +122,14 @@ console.log(isAgeOfMajority(1980, 12, 31)); // true
 console.log(isAgeOfMajority("1980", "12", 31)); // false – wrong data type
 
 
+/**============================================================
+ * 
+ * MOBILE NAVIGATION — SLIDE-IN MENU + SUBMENU TOGGLE
+ * Inspired by Minto Design, MDN Selector, Event, W3Schools - How to Slide Navigation
+ * 
+ * ============================================================*/
 
-/* ============================================================
-   MOBILE NAVIGATION — SLIDE-IN MENU + SUBMENU TOGGLE
-   Inspired by Minto Design, MDN Selector, Event, W3Schools - How to Slide Navigation
-   ============================================================ */
-
-// Select hamburger and nav
+// Select hambruger and nav
 const hamburger = document.querySelector(".hamburger");
 const mobileNav = document.querySelector(".main-nav");
 
@@ -149,3 +152,130 @@ submenuParent.querySelector("a").addEventListener("click", function (event) {
 
     // DESKTOP — submenu should open on hover, not on click
 });
+
+/* ============================================================
+   CONTACT FORM VALIDATION — ASSIGNMENT 4
+   jQuery Validation + custom rules + AS3 functions
+   ============================================================ */
+
+$(document).ready(function () {
+
+    /* -------------------------
+       Custom Validation Methods
+       ------------------------- */
+
+    // Email must pass AS3 function
+    $.validator.addMethod("customEmail", function (value) {
+        return isValidEmail(value);
+    }, "Please enter a valid email address.");
+
+    // Confirm email must match
+    $.validator.addMethod("matchEmail", function (value) {
+        return value === $("#email").val();
+    }, "Email addresses must match.");
+
+    // Age of majority (18+)
+    $.validator.addMethod("adultCheck", function (value) {
+        if (!value) return false;
+
+        const parts = value.split("-");
+        const year = Number(parts[0]);
+        const month = Number(parts[1]);
+        const day = Number(parts[2]);
+
+        return isAgeOfMajority(year, month, day);
+    }, "You must be at least 18 years old.");
+
+    // Phone number must be 10 digits
+    $.validator.addMethod("tenDigits", function (value) {
+        return /^\d{10}$/.test(value);
+    }, "Phone number must be 10 digits (e.g., 6131231234).");
+
+
+    /* ============================================================
+       Initialize Form Validation
+       ============================================================ */
+
+    $("#contactForm").validate({
+        rules: {
+            name: { required: true },
+            phone: { required: true, tenDigits: true },
+            email: { required: true, customEmail: true },
+            confirmEmail: { required: true, matchEmail: true },
+            dob: { required: true, adultCheck: true },
+            comments: { required: true, minlength: 3 },
+            consent: { required: true }
+        },
+
+        messages: {
+            name: "Name is required.",
+            comments: {
+                required: "Comments are required.",
+                minlength: "Comments must be at least 3 characters."
+            },
+            consent: "You must agree before submitting."
+        },
+
+        errorClass: "form-error",
+        validClass: "form-valid",
+
+
+        /* ============================================================
+           SUBMIT HANDLER — includes Confirmation Dialogue Message for testing
+           ============================================================ */
+        submitHandler: function (form) {
+
+            // Gather FORM data
+            const formData = {
+                name: $("#name").val(),
+                phone: $("#phone").val(),
+                email: $("#email").val(),
+                confirmEmail: $("#confirmEmail").val(),
+                dob: $("#dob").val(),
+                comments: $("#comments").val(),
+                consent: $("#consent").is(":checked")
+            };
+
+            // Gather validation results
+            const validationResults = {
+                name: $("#name").valid(),
+                phone: $("#phone").valid(),
+                email: $("#email").valid(),
+                confirmEmail: $("#confirmEmail").valid(),
+                dob: $("#dob").valid(),
+                comments: $("#comments").valid(),
+                consent: $("#consent").valid()
+            };
+
+            // Show confirmation dialogue
+            showConfirmationDialog(formData, validationResults);
+
+            // Show success message + reset form
+            $("#formSuccess").fadeIn();
+            form.reset();
+
+            return false;
+        }
+    });
+});
+
+
+/* ============================================================
+   DIALOGUE CONFIRMATIONS SCREEN
+   Displays a summary of user inputs + pass/fail status
+   ============================================================ */
+
+function showConfirmationDialog(formData, validationResults) {
+
+    let message = "Form Validation Summary:\n\n";
+
+    message += `Name: ${formData.name} — ${validationResults.name ? "PASS" : "FAIL"}\n`;
+    message += `Phone: ${formData.phone} — ${validationResults.phone ? "PASS" : "FAIL"}\n`;
+    message += `Email: ${formData.email} — ${validationResults.email ? "PASS" : "FAIL"}\n`;
+    message += `Confirm Email: ${formData.confirmEmail} — ${validationResults.confirmEmail ? "PASS" : "FAIL"}\n`;
+    message += `Date of Birth: ${formData.dob} — ${validationResults.dob ? "PASS" : "FAIL"}\n`;
+    message += `Comments: ${formData.comments} — ${validationResults.comments ? "PASS" : "FAIL"}\n`;
+    message += `Consent Checkbox: ${formData.consent ? "Checked" : "Not Checked"} — ${validationResults.consent ? "PASS" : "FAIL"}\n`;
+
+    alert(message);
+}

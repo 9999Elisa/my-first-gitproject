@@ -1,16 +1,22 @@
 /*
- * Student Name: 
- * Student ID: 
+ * Student Name: Elisa Lukas
+ * Student ID: 041-271-606
  * Course: CST8117 - Cross-Platform Web Design
  * Semester: Winter 2026
- * Assignment: 3
- * Date Submitted:  March 23, 2026
+ * Assignment: 4
+ * Date Submitted:  April 13, 2026
  */
 
 /* ============================================
    COLOUR PALETTE (Complementary)
    Primary: Deep Navy Blue (#2c3e50)
    Accent: Golden Orange (#f39c12)
+
+    This file styles:
+   - Global layout
+   - Header/Footer
+    -Navigation
+    -Cart page layout
    ============================================ */
 
 /* ================= GLOBAL STYLES ================= */
@@ -37,7 +43,6 @@ body {
     border-radius: 4px;
     z-index: 1000;
 }
-
 
 .skip-link:focus {
     top: 10px;
@@ -161,7 +166,6 @@ body {
     display: block;
 }
 
-
 /* ================= SPECIAL LEFT-COLUMN STATEMENT (About Page) ================= 
 ** Below, font is navy brand accent color <-- had to switch it from orange    **
 ** Orange was used for the shadow edge on font -- now it passes WAVE          **
@@ -243,9 +247,6 @@ body {
     gap: 15px;
 }
 
-.contact-info {
-    font-size: 14px;
-}
 
 /* ================= NAVIGATION ================= */
 .main-nav ul {
@@ -255,7 +256,6 @@ body {
     padding: 0;
     margin: 0;
 }
-
 
 /* NAVIGATION LINKS */
 nav a {
@@ -313,7 +313,6 @@ nav a {
 .cart-icon {
     display: inline-block;
 }
-
 
 /* ================= SEARCH BAR ================= */
 .search-bar input {
@@ -373,7 +372,7 @@ figcaption {
     margin: 10px 0 10px 20px;
 }
 
-/* ================= CART PAGE ================= */
+/* ================= CART: SECTION ================= */
 
 /* CART PAGE LAYOUT */
 
@@ -397,7 +396,8 @@ figcaption {
     /* softer corners on Orange Buttons */
 }
 
-/* CART page - Navy blue bars behind the section titles */
+
+/* CART page - Style Navy blue bars behind the section titles */
 .cart-section-title {
     background-color: #2c3e50;
     color: white;
@@ -425,7 +425,38 @@ figcaption {
     flex: 1;
 }
 
-/* COUPON BOX */
+.cart-totals {
+    margin-top: 40px;
+    text-align: right;
+}
+
+.cart-totals p {
+    margin: 5px 0;
+    font-size: 18px;
+}
+
+.cart-table {
+    display: grid;
+    grid-template-columns: 120px 1fr 100px 100px 100px;
+    gap: 15px;
+    align-items: center;
+    margin-top: 30px;
+}
+
+.cart-table img {
+    width: 120px;
+}
+
+.remove-btn {
+    background-color: #f39c12;
+    color: #1F2B38;
+    padding: 6px 10px;
+    border: none;
+    cursor: pointer;
+    border-radius: 6px;
+}
+
+/* --------------------- COUPON BOX ---------------------------*/
 .coupon-box {
     background-color: #f7f7f7;
     padding: 20px;
@@ -454,7 +485,7 @@ figcaption {
     border-radius: 6px;
 }
 
-/* CART ITEMS */
+/* -----------------------------CART FILL BASKET ITEMS ------------------------*/
 .cart-items-box {
     border: 1px solid #ddd;
     padding: 20px;
@@ -500,12 +531,21 @@ figcaption {
     cursor: pointer;
 }
 
-/* ORDER SUMMARY */
-.summary-box {
+/* ================= END BASKET - END LEFT COLUMN ================= */
+
+/* ================= BEGIN Right COLUMN ================= */
+
+.summary-box,
+.delivery-box,
+.account-box,
+.payment-box {
     background-color: #f7f7f7;
     padding: 20px;
     border: 1px solid #ddd;
     margin-bottom: 30px;
+    border-radius: 8px;
+    /* Pink OVAL AROUND THE CONTENT BIGGER IF BIG NUMBER HERE */
+    box-sizing: border-box;
 }
 
 .summary-line,
@@ -513,6 +553,7 @@ figcaption {
     display: flex;
     justify-content: space-between;
     margin: 10px 0;
+    /* padding around the text inside the summary box */
 }
 
 .summary-total {
@@ -520,26 +561,61 @@ figcaption {
     font-size: 18px;
 }
 
-/* DELIVERY */
-.delivery-box {
-    background-color: #f7f7f7;
-    padding: 20px;
-    border: 1px solid #ddd;
-    margin-bottom: 30px;
-}
-
-.delivery-input,
-.delivery-select {
+/* =================================================================== */
+/* In Store Pickup Vs Deliver Box  */
+/* =================================================================== */
+/* The input box for customer to insert comment */
+.pickup-notes-input {
     width: 100%;
-    padding: 8px;
-    margin: 8px 0;
+    padding: 10px;
+    height: 80px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    margin-bottom: 6px;
+    box-sizing: border-box;
 }
 
-/* PAYMENT */
-.payment-box {
-    background-color: #f7f7f7;
-    padding: 20px;
-    border: 1px solid #ddd;
+/*In Store Pickup Box - the Italic text below the Textinput area */
+.pickup-note {
+    font-style: italic;
+    font-size: 0.9rem;
+    /* smaller */
+    margin: 1px 0;
+    color: #444;
+    /* optional: softer tone */
+}
+
+/* Required for WCAG Error update*/
+.sr-only {
+    position: absolute;
+    left: -9999px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
+
+
+/* =================================================================== */
+/* CHECKOUT — DESKTOP */
+/* =================================================================== */
+
+.account-input,
+.account-select {
+    width: 100%;
+    padding: 10px;
+    /*input box bigger */
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    margin: 1px 0;
+    box-sizing: border-box;
+}
+
+.email-label,
+.password-label {
+    display: block;
+    font-weight: 600;
+    margin-top: 10px;
+    margin-bottom: 4px;
 }
 
 .checkout-btn {
@@ -565,6 +641,26 @@ footer {
 footer a {
     color: #f39c12;
     text-decoration: none;
+}
+
+
+/*=========CONTACT PAGE ===================== */
+
+.contact-info {
+    font-size: 14px;
+}
+
+.contact-info a {
+    color: #1F2B38;
+    /* WCAG accessible navy applied to the "a" */
+}
+
+/* Content area phone + email links */
+.intro-left a:link,
+.intro-left a:visited {
+    color: #1F2B38;
+    /* WCAG Accessibility navy */
+    text-decoration: underline;
 }
 
 /* ================= CONTACT FORM STYLING ================= */
@@ -634,6 +730,11 @@ footer a {
     line-height: 1.4;
 }
 
+.consent-wrapper a {
+    color: #1F2B38;
+    /* needed for WCAG‑AA compliance  */
+}
+
 .btn-submit {
     background-color: #f39c12;
     color: #1F2B38;
@@ -648,6 +749,47 @@ footer a {
 .btn-submit:hover {
     background-color: #d8890f;
 }
+
+/* ============================
+   FORM VALIDATION FEEDBACK
+   ============================ */
+
+/* Error message text */
+.form-error,
+#contactForm label.error {
+    color: #b30000;
+    font-size: 0.9rem;
+    margin-top: -8px;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+/* Highlight invalid fields */
+input.error,
+textarea.error {
+    border-color: #b30000 !important;
+    background-color: #ffecec;
+}
+
+/* Highlight valid fields */
+input.valid,
+textarea.valid {
+    border-color: #2ecc71 !important;
+    background-color: #f0fff6;
+}
+
+/* Success message */
+.success-message {
+    display: none;
+    color: #0a7a0a;
+    font-weight: bold;
+    margin-top: 15px;
+    padding: 10px;
+    background: #e8fbe8;
+    border: 1px solid #8fd98f;
+    border-radius: 6px;
+}
+
 
 /* ============================================================
    RESPONSIVE DESIGN — MOBILE NAV + LAYOUT FIXES
@@ -829,71 +971,86 @@ footer a {
         /* add white space on left + right */
     }
 
+    /* Inputs and textarea */
     #contactForm input:not([type="checkbox"]),
-    #contactForm textarea {
-        #contactForm select {
-            width: 100%;
-            box-sizing: border-box;
-            /* prevents overflow */
-            padding: 10px;
-            /* safe now that box-sizing is set */
-            margin-bottom: 14px;
-        }
-
-        .consent-wrapper {
-            align-items: flex-start;
-        }
-
+    #contactForm textarea,
+    #contactForm select {
+        width: 100%;
+        box-sizing: border-box;
+        /* prevents overflow */
+        padding: 10px;
+        /* safe now that box-sizing is set */
+        margin-bottom: 14px;
     }
 
-    /* ============================================================
+    /* Checkbox alignment fix */
+    .consent-wrapper {
+        align-items: flex-start;
+    }
+
+}
+
+/* Extra mobile padding for accessibility */
+@media (max-width: 600px) {
+
+    #contactForm input:not([type="checkbox"]),
+    #contactForm textarea {
+        padding: 14px;
+        font-size: 1.05rem;
+    }
+
+    .btn-submit {
+        padding: 14px;
+        font-size: 1.1rem;
+    }
+}
+
+/* ============================================================
         ORIENTATIONS
         Portrait: Device is taller than wide
         Landscape: Device is wider than tall
        ============================================================ */
-    @media (orientation: portrait) {
-        body {
-            padding: 0;
-            /* placeholder */
-        }
+@media (orientation: portrait) {
+    body {
+        padding: 0;
+        /* placeholder */
     }
+}
 
-    @media (orientation: landscape) {
-        body {
-            padding: 0;
-            /* placeholder */
-        }
+@media (orientation: landscape) {
+    body {
+        padding: 0;
+        /* placeholder */
     }
+}
 
-    /* ============================================================
+/* ============================================================
         EXTRA SMALL SCREENS (Phones under 480px)
        ============================================================ */
-    @media (max-width: 480px) {
+@media (max-width: 480px) {
 
-        .header-top h1 {
-            font-size: 24px;
-        }
-
-        .tagline {
-            font-size: 16px;
-        }
-
-        .search-category-btn {
-            padding: 5px 8px;
-            font-size: 12px;
-        }
-
-        .intro-heading h1 {
-            font-size: 26px;
-        }
-
-        .intro-heading h2 {
-            font-size: 18px;
-        }
-
-        .cart-item-img {
-            width: 100px;
-        }
+    .header-top h1 {
+        font-size: 24px;
     }
 
+    .tagline {
+        font-size: 16px;
+    }
+
+    .search-category-btn {
+        padding: 5px 8px;
+        font-size: 12px;
+    }
+
+    .intro-heading h1 {
+        font-size: 26px;
+    }
+
+    .intro-heading h2 {
+        font-size: 18px;
+    }
+
+    .cart-item-img {
+        width: 100px;
+    }
 }
